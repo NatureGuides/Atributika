@@ -23,7 +23,7 @@ import UIKit
     private var detectionAreaButtons = [DetectionAreaButton]()
     
     //MARK: - public properties
-    open var onClick: ((AttributedLabel, Detection)->Void)?
+    open var onClick: ((AttributedLabel, Detection, CGRect)->Void)?
     
     @IBInspectable open var isEnabled: Bool {
         set {
@@ -228,7 +228,7 @@ import UIKit
     }
     
     @objc private func handleDetectionAreaButtonClick(_ sender: DetectionAreaButton) {
-        onClick?(self, sender.detection)
+        onClick?(self, sender.detection, sender.frame)
     }
     
     //MARK: - state
